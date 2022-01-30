@@ -5,7 +5,7 @@ import { UserIconWithName } from "../../molecules/user/UserIconWithName";
 
 export const UserCard = memo((props) => {
   console.log("UserCard");
-  const { user } = props;
+  const { user, isAdmin} = props;
   return(
     <Card>
       <UserIconWithName image={user.image} name={user.name} />
