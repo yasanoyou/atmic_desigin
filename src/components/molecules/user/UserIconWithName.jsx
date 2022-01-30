@@ -1,7 +1,11 @@
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { UserContext } from "../../../providers/UserProvider";
 
 export const UserIconWithName = (props) => {
-  const { image, name } = props;
+  const { image, name, isAdmin } = props;
+  const context = useContext(UserContext);
+  console.log(context);
   return(
     <Scontainer>
       <SImg
@@ -11,6 +15,7 @@ export const UserIconWithName = (props) => {
         alt={name}
       />
       <SName>{name}</SName>
+      {isAdmin && <SEdit>編集</SEdit>}
     </Scontainer>
   );
 };
@@ -27,3 +32,8 @@ const SName = styled.p`
   margin: 0;
   color: #40514e;
 `;
+const SEdit = styled.span`
+  text-decoration: underline;
+  color: #aaa;
+  cursor: pointer;
+`
